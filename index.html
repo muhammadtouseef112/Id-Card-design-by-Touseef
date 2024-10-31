@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ID card Generator By Touseef</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <h1>Id Card Generator By Touseef</h1>
+      <form id="form">
+        <h3>Name</h3>
+        <input type="text" id="name" placeholder="enter your name" />
+        <h3>Father Name</h3>
+        <input
+          type="text"
+          id="fathername"
+          placeholder="enter your father name"
+        />
+        <h3>Contact</h3>
+        <input type="text" id="contact" placeholder="enter your contact no" />
+        <h3>Qualification</h3>
+        <input
+          type="text"
+          id="qualification"
+          placeholder="enter your qualification"
+        />
+        <br />
+        <br />
+        <br />
+        <button
+          type="button"
+          onclick="makeidcard(),alert('Please see your id card below')"
+        >
+          Generate ID card
+        </button>
+      </form>
+    </div>
+    <br />
+    <div class="carddisplay">
+      <h2>Your Identity Card</h2>
+      <h4>Name: <span id="idname"></span></h4>
+      <h4>Fathername: <span id="idfname"></span></h4>
+      <h4>Contact: <span id="idcont"></span></h4>
+      <h4>Qualification: <span id="idqualify"></span></h4>
+    </div>
+    <script>
+      function makeidcard() {
+        localStorage.setItem("name", document.getElementById("name").value);
+        localStorage.setItem(
+          "fathername",
+          document.getElementById("fathername").value
+        );
+        localStorage.setItem(
+          "contact",
+          document.getElementById("contact").value
+        );
+        localStorage.setItem(
+          "qualification",
+          document.getElementById("qualification").value
+        );
+
+        var Name = (document.getElementById("idname").innerText =
+          localStorage.getItem("name"));
+        var Fathername = (document.getElementById("idfname").innerText =
+          localStorage.getItem("fathername"));
+        var Contact = (document.getElementById("idcont").innerText =
+          localStorage.getItem("contact"));
+        var Qualification = (document.getElementById("idqualify").innerText =
+          localStorage.getItem("qualification"));
+
+        document.getElementById("carddisplay").style.display = "block";
+      }
+    </script>
+  </body>
+</html>
